@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function bingo(array) {
+            if(array.length == 75){
+                console.log("Jogo finalizado! Último número sorteado: ");
+            }
+            let verificar = true;
+            while (verificar) {
+                let num = Math.floor(Math.random() * (76 - 0));
+                if (array.indexOf(num) == -1) {
+                    array.push(num);
+                    array.sort((a, b) => a - b);
+                    verificar = false;
+                    num = "Número sorteado foi: " + num;
+                    return [num, array];
+                }
+            }
+        }
+    </script>
+</body>
+</html>

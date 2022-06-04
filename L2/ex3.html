@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <h2>Árvore</h2>
+    <input type="number" id="numLinhas" placeholder="Digite o número de linhas" style="width: 220px;">
+    <legend>Esse número deve estar entre 5 e 15.</legend>
+    <br /><br />
+    <button onclick="executar()"><p>Criar árvore</p></button>
+    <br/><br/>
+    <p id="saida" style="text-align: center;"></p>
+    <script>
+        function executar() {
+            let linhas = Number(document.getElementById('numLinhas').value);
+            try {
+            if(linhas < 5)
+                throw ("erro1");
+            if(linhas > 15)
+                throw ("erro2");
+            for(a=0; a<=linhas; a++){
+                for(b=0; b<a; b++){
+                    document.getElementById('saida').innerHTML += `*`;
+                }
+                document.getElementById('saida').innerHTML += `<br/>`;
+            }
+            document.getElementById('saida').innerHTML += `*<br/>*`;
+            }catch (error) {
+                if (error== "erro1")
+                    alert("O número deve ser maior que 4");
+                if (error== "erro2")
+                    alert("O número deve ser menor que 16");
+            }
+        }
+
+    </script>
+</body>
+</html>

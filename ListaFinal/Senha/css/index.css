@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+
+legend{
+    font-size: 30px;
+}
+
+#forms {
+    max-width: 50%;
+    position: relative;
+    margin: auto;
+    background-color: #fff;
+}
+
+#forms label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+#forms input {
+    border: 2px solid #3E445B;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+#forms button {
+    background-color: #6C63FF;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    font-size: 15px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#forms button:hover {
+    background-color: #584ff5;
+    transition: 0.3s;
+}

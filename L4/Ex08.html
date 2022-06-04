@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="saida"></p>
+    <script>
+        const brasil = [
+            {
+                cidade: "Jales",
+                estado: "SP",
+                regiao: "Sudeste",
+                populacao: 49000
+            },
+            {
+                cidade: "Aquidauana",
+                estado: "MS",
+                regiao: "Centro Oeste",
+                populacao: 45000
+            },
+            {
+                cidade: "Três Fronteiras",
+                estado: "SP",
+                regiao: "Sudeste",
+                populacao: 10000
+            },
+            {
+                cidade: "Bonito",
+                estado: "MS",
+                regiao: "Centro Oeste",
+                populacao: 15000
+            },
+            {
+                cidade: "Brusque",
+                estado: "SC",
+                regiao: "Sull",
+                populacao: 80000
+            },
+            {
+                cidade: "Porto Alegre",
+                estado: "RS",
+                regiao: "Sul",
+                populacao: 1200000
+            },
+            {
+                cidade: "Urânia",
+                estado: "SP",
+                regiao: "Sudeste",
+                populacao: 19000
+            },
+            {
+                cidade: "Manaus",
+                estado: "AM",
+                regiao: "Norte",
+                populacao: 900000
+            },
+            {
+                cidade: "Macapá",
+                estado: "AP",
+                regiao: "Norte",
+                populacao: 500000
+            },
+            {
+                cidade: "Fortaleza",
+                estado: "CE",
+                regiao: "Nordeste",
+                populacao: 700000
+            },
+            {
+                cidade: "Natal",
+                estado: "RN",
+                regiao: "Nordeste",
+                populacao: 650000
+            },
+        ];
+        function Sudeste(){
+            let sudeste = brasil.filter((a)=> a.regiao=='Sudeste');
+            for(let x in sudeste){
+                document.getElementById('saida')+=sudeste[x];
+            }
+            
+        }
+        function regiao(){
+            let regioes = brasil.reduce((regiao, cidade)=>{
+                if(!regiao[cidade.regiao]){
+                    regiao[cidade.regiao] =[];
+                }
+                regiao[cidade.regiao].push(cidade.cidade);
+                return regiao;},{});
+                document.getElementById('saida').innerHTML = regioes;
+            }
+        
+        function habitantes(){
+            function mil(valor){
+                if(valor.populacao>50000){
+                    return valor;
+                }
+            }
+            let cid = brasil.map(mil);
+            document.getElementById('saida').innerHTML = cid;
+        }
+        function estado(){
+            let estado = brasil.reduce((estado, cidade)=>{
+                if(!estado[cidade.estado]){
+                    estado[cidade.estado] =[];
+                }
+                regiao[cidade.estado].push(cidade.cidade);
+                return regiao;},{});
+                document.getElementById('saida').innerHTML = estado;
+        }
+    </script>
+</body>
+
+</html>

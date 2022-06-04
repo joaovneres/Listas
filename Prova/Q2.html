@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2</title>
+</head>
+<body>
+    <h3>Exercício 02</h3>
+    <p>Digite o valor depositado em R$.</p>
+    <input type="text" id="valor" placeholder="Exemplo: 1 ou 1.75" style="width: 220px;">
+    <br/>
+    <br/>
+    <button onclick="calcular()">Calcular tempo disponível</button>
+    <p id="saida"></p>
+    <script>
+        function calcular(){
+            const valorpg = document.getElementById('valor').value;
+            let troco;
+            try {
+                if(valorpg!=Number(valorpg))
+                    throw("erro");
+                if(valorpg<0)
+                    throw("erro1");
+                if(valorpg==1){
+                    document.getElementById('saida').innerHTML = "O veículo pode permanecer aqui por 30 minutos";
+                } else if((valorpg>1)&&(valorpg<1.75)){
+                    let troco = valorpg - 1;
+                    document.getElementById('saida').innerHTML = "O veículo pode permanecer aqui por 30 minutos e você tem um troco de R$ " + (troco).toFixed(2);
+                } else if(valorpg==1.75){
+                    document.getElementById('saida').innerHTML = "O veículo pode permanecer aqui por 60 minutos";
+                }else if((valorpg>1.75)&&(valorpg<3)){
+                    let troco = valorpg - 1.75;
+                    document.getElementById('saida').innerHTML = "O veículo pode permanecer aqui por 60 minutos e você tem um troco de R$ " + (troco).toFixed(2);
+                }else if(valorpg==3){
+                    document.getElementById('saida').innerHTML = "O veículo pode permanecer aqui por 120 minutos";
+                }else if(valorpg>3){
+                    let troco = valorpg - 3;
+                    document.getElementById('saida').innerHTML = "O veículo pode permanecer aqui por 120 minutos e você tem um troco de R$ " + (troco).toFixed(2);
+                } else{
+                    document.getElementById('saida').innerHTML = "Valor Insuficiente."
+                }
+            } catch (error) {
+                if(error=="erro")
+                    alert("Digite um número.");
+                if(error=="erro1")
+                    alert("Digite um número positivo");
+            }
+        }
+    </script>
+</body>
+</html>

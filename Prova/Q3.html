@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3</title>
+</head>
+<body>
+    <h3>Exercício 03</h3>
+    <p>Digite o seu nome completo.</p>
+    <input type="text" id="nomecompleto" placeholder="Exemplo: João Victor Neres" style="width: 220px;">
+    <br/>
+    <br/>
+    <button onclick="gerar()">Gerar crachá</button>
+    <p id="saida"></p>
+    <script>
+        function gerar(){
+            const nome = document.getElementById('nomecompleto').value;
+            const partesNome = nome.split(" ");
+            try {
+                if(partesNome.length<2)
+                    throw("erro");
+                let pNome = partesNome[0];
+                const pNreverso = partesNome.reverse();
+                let sNome = pNreverso[0];
+                document.getElementById('saida').innerHTML = "Crachá: " + pNome + " " + sNome;
+            } catch (error) {
+                if(error=="erro")
+                    alert("Digite o nome completo.")
+            }
+        }
+    </script>
+</body>
+</html>

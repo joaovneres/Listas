@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex03</title>
+</head>
+<body>
+    <h1>Programa Senha Inicial</h1>
+    <p>Nome do Aluno</p>
+    <input type="text" id="nome" placeholder="Digite o nome completo" style="width: 300px;">
+    <button onclick="gerarSenha()">Gerar Senha</button>
+    <h3 id="saida"></h3>
+    <script>
+        function gerarSenha(){
+            let nomeCompleto = document.getElementById('nome').value;
+            let validacao = validarNone(nomeCompleto);
+            if(validacao==1){
+                document.getElementById('saida').innerHTML = `Senha Inicial: ` +obterSobrenome(nomeCompleto) + contarVogats(nomeCompleto);
+            }else{
+                document.getElementById('saida').innerHTML = `Para gerar a senha, é necessário digitar o nome completo`
+            }
+
+            }
+        function validarNone(nomeCompleto){
+            let nome = nomeCompleto.split(" ");
+            if(nome.lenght>1)
+                return true;
+            else   
+                return false;
+        }
+        function obterSobrenome(nomeCompleto){
+            let arrayNome = nomeCompleto.split(" ");
+            return arrayNome
+        }
+        function contarVogats(nomeCompleto){
+            let totalVogal = 0;
+            let vogais = ['a', 'e', 'i', 'o', 'u'];
+            let i;
+            for (i=0; i<nomeCompleto.lenght; i++){
+                if(vogais.indexOf(nomeCompleto[i]) != -1){
+                    totalVogal++;
+                }
+            }
+            return totalVogal;
+        }
+        
+    </script>
+</body>
+</html>

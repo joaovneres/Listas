@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo Locadora JS</title>
+</head>
+
+<body>
+    <h1>Título do Filme</h1>
+    <input type="text" id="filme" placeholder="Nome do filme">
+    <legend>Digite o nome do filme</legend>
+    <h1>Duração (min.)</h1>
+    <input type="number" id="duracao" placeholder="Duração em min">
+    <legend>Digite a duração em minutos</legend>
+    <br/><br/>
+    <button onclick="executar()">Converter em horas e minutos</button>
+    <p id="saida"></p>
+    <script>
+        function executar(){
+            let nomeFilme = document.getElementById('filme').value;
+            let duracao = parseInt(document.getElementById('duracao').value);
+            let hora = parseInt((duracao/60));
+            let min = parseInt(duracao%60);
+            if (hora==0){
+                document.getElementById('saida').innerHTML = "O filme \"" + nomeFilme + "\" dura "  + min + " minutos.";
+            }else if(min==0){
+                document.getElementById('saida').innerHTML = "O filme \"" + nomeFilme + "\" dura " + hora + " hora.";
+            }else{
+            document.getElementById('saida').innerHTML = "O filme \"" + nomeFilme + "\" dura " + hora + " hora e " + min + " minutos.";
+            } 
+        }
+    </script>
+</body>
+
+</html>

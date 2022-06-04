@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular média</title>
+</head>
+<body>
+    <script>
+        console.log(media(10, 9))
+        function media(){
+            let len = arguments.length;
+            try {
+            if(len < 2)
+                throw ("erro1");
+                let i = 0, soma = 0, media;
+                while(i<len){
+                    soma += arguments[i];
+                    i++
+                }
+                media = soma/len;
+                console.log("A média final desse aluno é: "+media)
+            }catch (error) {
+                if (error== "erro1")
+                    console.log("Digite mais de uma nota");
+        }
+    }
+    </script>
+</body>
+</html>

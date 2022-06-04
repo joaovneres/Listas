@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado JS</title>
+</head>
+<body>
+    <h2>Informe o produto:</h2>
+    <input type="text" id="produto" placeholder="Digite aqui o produto" style="width: 220px;">
+    <h2>Informe o valor do produto R$:</h2>
+    <input type="number" id="valor" placeholder="Digite aqui o valor em R$" style="width: 220px;">
+    <br/><br/>
+    <button onclick="executar()">Ver promoção</button>
+    <p id="saida"></p>
+    <script>
+        function executar(){
+            let produto = document.getElementById('produto').value;
+            let preco = parseFloat(document.getElementById('valor').value);
+            let desconto = preco/2;
+            let valorTotal = (2*preco) + desconto;
+            document.getElementById('saida').innerHTML = produto + " - Promoção: Leve 3 por " + valorTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + "<br/>O 3º produto custa apenas " + desconto.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+        }
+    </script>
+</body>
+</html>

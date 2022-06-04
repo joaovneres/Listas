@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h2>Contas do mês.</h2>
+    <input type="text" id="descricao" placeholder="Descrição da conta" style="width: 220px;">
+    <br/><br/>
+    <input type="number" id="num" placeholder="Digite o valor" style="width: 220px;">
+    <br/><br/>
+    <button onclick="executar()" id="botao"><p>Registrar Conta</p></button>
+    <br/><br/>
+    <p id="saida"></p>
+    <p id="total"></p>
+    <script>
+        let count = 0;
+        let valortotal = 0;
+        function executar(){
+            count ++;
+            let valor = Number(document.getElementById('num').value);
+            document.getElementById('saida').innerHTML += document.getElementById('descricao').value + ` - ` + valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + `<br/>`;
+            valortotal = valor + valortotal;
+            document.getElementById('total').innerHTML = `-------------------------------------- <br\>` + count + ` conta(s) - Total: ` + valortotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+        }
+    </script>
+</body>
+</html>

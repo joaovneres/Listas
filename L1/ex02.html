@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículo JS</title>
+</head>
+<body>
+
+    <h1>Veículo</h1>
+    <input type="text" id="carro" placeholder="Nome do veículo">
+    <legend>Digite o nome do veículo</legend>
+    <h1>Preço (R$)</h1>
+    <input type="number" id="preco" placeholder="Valor do veículo">
+    <legend>Digite o valor em R$.</legend>
+    <br/><br/>
+    <button onclick="executar()">Ver promoção</button>
+    <p id="saida"></p>
+    <script>
+        function executar(){
+            let veiculo = document.getElementById('carro').value;
+            let valor = parseFloat(document.getElementById('preco').value)
+            ;
+            let entrada = parseFloat((valor/2));
+            let parcela = parseFloat((entrada/12));
+            document.getElementById('saida').innerHTML = "Promoção: " + veiculo + ".<br/>Entrada de " + entrada.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + " + 12x de  " + parcela.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + ".";
+        }
+    </script>
+</body>
+</html>

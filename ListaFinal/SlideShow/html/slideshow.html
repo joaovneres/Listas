@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SlideShow</title>
+  <link rel="stylesheet" href="../css/Slideshow.css">
+</head>
+
+<body>
+  <div class="slideshow">
+    <div class="slide fade">
+      <img src="../imagem/hamburguer.jpg" alt="Primeiro slide">
+      <div class="text">
+      </div>
+    </div>
+    <div class="slide fade">
+      <img src="../imagem/hamburguer1.jpg" alt="Segundo slide">
+      <div class="text"></div>
+    </div>
+    <div class="slide fade">
+      <img src="../imagem/hamburguer2.jpg" alt="Terceiro slide">
+      <div class="text"></div>
+    </div>
+    <a class="ant" onclick="pularSlide(-1)">&#10094;</a>
+    <a class="prox" onclick="pularSlide(1)">&#10095;</a>
+  </div>
+  <br />
+
+  <div style="text-align: center">
+    <span class="dot" onclick="irSlide(1)"></span>
+    <span class="dot" onclick="irSlide(2)"></span>
+    <span class="dot" onclick="irSlide(3)"></span>
+  </div>
+  <br/>
+  <fieldset>
+    <label for="legenda1">Digite a legenda da imagem 01:</label>
+    <input type="text" id="legenda1" placeholder="Legenda 01">
+    <button onclick="inserirLegenda(1)">Inserir</button>
+    <br />
+    <br />
+    <label for="legenda2">Digite a legenda da imagem 02:</label>
+    <input type="text" id="legenda2" placeholder="Legenda 02">
+    <button onclick="inserirLegenda(2)">Inserir</button>
+    <br />
+    <br />
+    <label for="legenda3">Digite a legenda da imagem 03:</label>
+    <input type="text" id="legenda3" placeholder="Legenda 03">
+    <button onclick="inserirLegenda(3)">Inserir</button>
+  </fieldset>
+  <script src="../js/slideshow.js"></script>
+</body>
+
+</html>

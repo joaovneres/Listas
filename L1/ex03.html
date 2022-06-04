@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante JS</title>
+</head>
+    <h1>Tabela de preços</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                    Peso
+                </th>
+                <th>
+                    Valor do Kg em R$
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Até 500g
+                </td>
+                <td>
+                    40.00
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Até 1000g
+                </td>
+                <td>
+                    35.00
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Acima de 1000g
+                </td>
+                <td>
+                    30.00
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Informe a quantidade consumida (g)</h2>
+    <input type="number" id="consu" placeholder="Em gramas">
+    <br/><br/>
+    <button onclick="executar()">Calcular valor</button>
+    <p id="saida"></p>
+    <script>
+        function executar(){
+            let consumo = parseFloat(document.getElementById('consu').value);
+            if(consumo<=0){
+                document.getElementById('saida').innerHTML="O cliente não consumiu nada.<br/>Não tem valor para ser cobrado.";
+            }else if(consumo<=500){
+                let valor = consumo * (40/1000);
+                document.getElementById('saida').innerHTML="O cliente consumiu " +consumo+ " g.<br/>Valor do KG será R$40,00.<br/>O valor a ser pago será de " +valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + ".";
+            }
+            else if(consumo<=1000){
+                let valor = consumo * (35/1000);
+                document.getElementById('saida').innerHTML="O cliente consumiu " +consumo+ " g.<br/>Valor do KG será R$35,00.<br/>O valor a ser pago será de " +valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + ".";
+            }
+            else{
+                let valor = consumo * (30/1000);
+                document.getElementById('saida').innerHTML="O cliente consumiu " +consumo+ " g.<br/>Valor do KG será R$30,00.<br/>O valor a ser pago será de " +valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + ".";
+            }
+        }
+    </script>
+</body>
+
+</html>

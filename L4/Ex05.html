@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Agenda!</h1>
+    <div id="saida">
+    </div>
+    <form>
+        <input type="number" id="id" hidden="" value="">
+        <label for="nome">Nome:</label><input type="text" id="nome">
+        <br/>
+        <br/>
+        <label for="endereco">Endereço:</label><input type="text" id="endereco">
+        <br/>
+        <br/>
+        <label for="telefone">Telefone:</label><input type="number" id="telefone">
+        <br/>
+        <br/>
+        <label for="email">E-mail:</label><input type="email" id="email">
+    </form>
+    <br/>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Exibir agenda</button>
+    <br />
+    <br />
+    <table>
+        <tbody id="liste">
+        </tbody>
+    </table>
+
+</body>
+<script>
+    let agenda = [];
+    function cadastrar() {
+        let id = document.getElementById("id").value;
+        if (id == "") {
+            let nome = document.getElementById("nome").value;
+            let endereco = document.getElementById("endereco").value;
+            let telefone = document.getElementById("telefone").value;
+            let email = document.getElementById("email").value;
+            let tam = agenda.length;
+            let pessoa = {
+                "id": tam > 2 ? tam - 1 : ((tam - 1) + 1),
+                "nome": nome,
+                "endereco": endereco,
+                "telefone": telefone,
+                "email": email
+            }
+            agenda.push(pessoa);
+            agenda.sort(function (a, b) {
+                if (a.nome > b.nome) { return 1; }
+                else if (a.nome < b.nome) { return -1; }
+                else { return 0; }
+            });
+            document.getElementById("nome").value = "";
+            document.getElementById("endereco").value = "";
+            document.getElementById("telefone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById('saida').innerHTML = "Contato cadastrado!";
+        }
+        else {
+            editar(id);
+        }
+    }
+    function editar(id) {
+        document.getElementById('saida').innerHTML = "";
+        let nome = document.getElementById("nome").value;
+        let endereco = document.getElementById("endereco").value;
+        let telefone = document.getElementById("telefone").value;
+        let email = document.getElementById("email").value;
+        agenda[id].nome = nome;
+        agenda[id].endereco = endereco;
+        agenda[id].telefone = telefone;
+        agenda[id].email = email;
+        document.getElementById("nome").value = "";
+        document.getElementById("endereco").value = "";
+        document.getElementById("telefone").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("id").value = "";
+        document.getElementById('saida').innerHTML = "Contato alterado!";
+    }
+
+    function listar() {
+        document.getElementById('saida').innerHTML = "";
+        document.getElementById('liste').innerHTML = "";
+        let posicaoContato = 0;
+        for (let posicao in agenda) {
+            document.getElementById('liste').innerHTML += "<tr><td>" + agenda[posicao].nome + "</td>" +
+                "<td><button onclick='mostrar(" + agenda[posicao].id + ")'>Consultar</button></td>" +
+                "<td><button onclick='excluir(" + posicaoContato + ")'>Remover</button></td></tr>";
+                posicaoContato++;
+        }
+    }
+    function mostrar(id) {
+        document.getElementById("nome").value = agenda[agenda[id].id].nome;
+        document.getElementById("endereco").value = agenda[agenda[id].id].endereco;
+        document.getElementById("telefone").value = agenda[agenda[id].id].telefone;
+        document.getElementById("email").value = agenda[agenda[id].id].email;
+    }
+    function excluir(posicaoContato){
+        document.getElementById('liste').innerHTML="";
+        agenda.splice(posicaoContato,posicaoContato);
+        document.getElementById('saida').innerHTML = "Contato excluído.";
+    }
+</script>
+
+</html>

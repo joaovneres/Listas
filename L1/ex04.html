@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia JS</title>
+</head>
+<body>
+    <h2>
+        Medicamento
+    </h2>
+    <input type="text" id="medicamento" placeholder="Digite o nome do medicamento" style="width: 200px;">
+    <h2>
+       Preço
+    </h2>
+    <input type="number" id="preco" placeholder="Digite o valor do medicamento" style="width: 200px;">
+    <br/><br/>
+    <button onclick="executar()">Mostrar promoção</button>
+    <p id="saida"></p>
+    <script>
+        function executar(){
+            let med = document.getElementById('medicamento').value;
+            let preco = parseFloat(document.getElementById('preco').value);
+            let valor = parseInt(preco*2);
+            document.getElementById('saida').innerHTML = "Promoção de " + med + ".<br/>Leve 02 por apenas " + valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + ".";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(214, 214, 214);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+legend{
+    font-size: 30px;
+}
+
+.form {
+    max-width: 50%;
+    position: relative;
+    margin: auto;
+    background-color: #fff;
+}
+
+.form label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.form input {
+    border: 2px solid #3E445B;
+    border-radius: 5px;
+
+    padding: 15px;
+}
+
+.form button {
+    background-color: #6C63FF;
+    border-radius: 5px;
+    color: #fff;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+
+    margin-top: 5px;
+
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #584ff5;
+    transition: 0.3s;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natação</title>
+</head>
+<body>
+    <h2>Clube de natação</h2>
+    <p>Nome do atleta</p>
+    <input type="text" id="nome" placeholder="Digite o nome completo" style="width: 220px;">
+    <br/><br/>
+    <p>Idade</p>
+    <input type="number" id="idade" placeholder="Digite a idade em anos" style="width: 220px;">
+    <br/><br/>
+    <button onclick="categoria()" id="botao"><p>Categorizar</p></button>
+    <br/><br/>
+    <p style="font-family: 'Courier New', Courier, monospace" id="saida"></p>
+    <script>
+        function categoria(){
+            let idade = Number(document.getElementById('idade').value);
+            let nome = document.getElementById('nome').value;
+            let categoria = categorizarAluno(idade);
+            document.getElementById('saida').innerHTML = `Nome:<br/>` + nome + `<br/>` + retornarTracos(nome) + `<br/>Categoria: ` + categoria;
+            }
+        function categorizarAluno(idade){
+            let tipo;
+            if(idade<13)
+                tipo = "Infantil";
+            else if(idade<19)
+                tipo = "Juvenil";
+            else
+                tipo = "Adulto";
+            return tipo;
+        }
+        function retornarTracos(nome){
+            let nomes = nome.split(" ");
+            let linha = "";
+            for(let i=0; i<nomes.length; i++){
+                for(let j=0; j<nomes[i].length; j++){
+                    linha += "-";
+                }
+                linha += " ";
+        }
+        return linha;
+    }
+    </script>
+</body>
+</html>

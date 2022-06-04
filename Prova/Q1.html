@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+</head>
+<body>
+    <h3>Exercício 01</h3>
+    <p>Digite um número inteiro e positivo menor que 10</p>
+    <input type="text" id="numero" placeholder="Digite aqui" style="width: 220px">
+    <br/>
+    <br/>
+    <button onclick="executar()">Imprimir se é ímpar ou par</button>
+    <p id='saida'></p>
+    <script>
+        function executar(){
+            let numero = document.getElementById('numero').value;
+            try {
+                if(numero!=Number(numero))
+                    throw("erro1");
+                if(numero<0)
+                    throw("erro2");
+                if(numero>10)
+                    throw("erro3");
+                if(numero!=parseInt(numero))
+                    throw("erro4");
+                if((numero%2)==0){
+                    document.getElementById('saida').innerHTML = "O número " + numero + " é par.";
+                }else{
+                    document.getElementById('saida').innerHTML = "O número " + numero + " é ímpar."; 
+                }
+            } catch (error) {
+                if(error=="erro1")
+                    alert("Digite um número.");
+                if(error=="erro2")
+                    alert("Digite um número positivo.");
+                if(error=="erro3")
+                    alert("Digite um número menor que 11.");
+                if(error=="erro4")
+                    alert("Digite um número inteiro.");
+            }
+        }
+    </script>
+</body>
+</html>

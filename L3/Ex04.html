@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex04</title>
+</head>
+<body>
+    <h1>Veterinária Avenida</h1>
+    <p>Valro da Vacina:</p>
+    <input type="number" id="valor" placeholder="Valor em R$" style="width: 220px;">
+    <p>Possui Convênio:</p>
+    <input type="radio" id="opcao" value = "1"> Sim
+    <input type="radio" id="opcao" value = "0"> Não
+    <p>Convênio:</p>
+    <select id="convenios">
+        <option value="1">Amigos dos Animais</option>
+        <option value="1">Saúde Animal</option>
+    </select>
+    <button onclick="desconto()"></button>
+    <h3 id="saida"></h3>
+    <script>
+        function desconto(){
+            let valor = document.getElementById('valor').value;
+            let select = document.querySelector('convenios');
+            let optionValor = select.options[select.selectedIndex];
+            let convenio = optionValor.value;
+            calcularDesconto(convenio, valor);
+
+        }
+        function calcularDesconto(convenio,valor){
+            
+        }
+    </script>
+</body>
+</html>

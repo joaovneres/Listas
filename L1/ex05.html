@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lan House JS</title>
+</head>
+
+<body>
+    <h2>
+        Valor por uso de 15 minutos.
+    </h2>
+    <input type="number" id="valor" placeholder="Digite o valor" style="width: 220px;">
+    <h2>
+        Tempo de uso do cliente (min).
+    </h2>
+    <input type="number" id="minutos" placeholder="Digite o tempo de uso em minutos" style="width: 220px;">
+    <br/><br/>
+    <button onclick="executar()">Calcular valor a pagar</button>
+    <p id="saida"></p>
+    <script>
+        function executar() {
+            let valor = parseFloat(document.getElementById('valor').value);
+            let minutos = parseInt(document.getElementById('minutos').value);
+            let tempo = parseInt(minutos / 15);
+            let restempo = minutos % 15;
+            if (restempo != 0) {
+                let tempoTotal = tempo + 1;
+                let valorTotal = tempoTotal * valor;
+                document.getElementById('saida').innerHTML = "Valor a pagar " + valorTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + ".";
+            } else {
+                let valorTotal = tempo * valor;
+                document.getElementById('saida').innerHTML = "Valor a pagar " + valorTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) + ".";
+            }
+        }
+    </script>
+</body>
+
+</html>
