@@ -22,12 +22,21 @@
             <label for="senha">Senha:</label>
             <input type="password" placeholder="Digite a sua senha aqui" id="senha">
             <br /><br />
-            <button id="btn">Validar senha</button>
+            <div>
+                <button id="btn">Validar senha</button>
+                <button id="definir" display="none">Definir senha</button>
+            </div>
         </div>
-        <div>
-            <p>Requisitos para senha:<br />Mínimo 6 caracteres.<br />Máximo 10 caracteres.<br />Diferente do
-                email.<br />Letras maiúsculas, minúsculas e um caractere especial.</p>
-        </div>
+        <p>Requisitos para senha:</p>
+        <label class="necessidades">Mínimo 6 caracteres e máximo 10 caracteres.</label><br />
+        <label class="necessidades">Diferente do email.</label><br />
+        <label class="necessidades">Letras maiúsculas.</label><br />
+        <label class="necessidades">Letras minúsculas</label><br />
+        <label class="necessidades">Caractere especial.</label><br />
+        <label class="necessidades">Número.</label><br />
+        <label class="necessidades">Não pode ser igual a 05 anteriores.</label>
+        <h3 id="saida">
+        </h3>
     </fieldset>
     <script src="../js/index.js"></script>
 </body>
